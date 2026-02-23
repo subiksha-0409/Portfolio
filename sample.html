@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Subiksha • Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"/>
+
+<style>
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+body {
+    background: 
+        radial-gradient(circle at 20% 30%, #7f5dff40, transparent 60%),
+        radial-gradient(circle at 80% 70%, #c67bff30, transparent 60%),
+        #0f0e17;
+    color:white;
+    overflow-x:hidden;
+    opacity:0;
+    animation:fadeInPage 1s forwards;
+}
+
+/* PAGE FADE-IN */
+@keyframes fadeInPage { to { opacity:1; } }
+.bg-glow{
+    position:fixed;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#7f5dff60,#0f0e17);
+    top:-200px;
+    left:-200px;
+    filter:blur(120px);
+    z-index:-10;
+}
+/* NAVBAR */
+header{
+    position:fixed; top:0; width:100%;
+    padding:20px 8%;
+    display:flex; justify-content:space-between; align-items:center;
+    background:#ffffff15; backdrop-filter:blur(20px);
+    z-index:999;
+    animation:slideDown .8s ease-out;
+}
+@keyframes slideDown { from { transform:translateY(-50px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+
+header h2 { font-size:28px; color:#c7b0ff; font-weight:800; }
+nav a { color:#eee; text-decoration:none; margin-left:25px; font-weight:600; transition:.3s; }
+nav a:hover { color:#c7b0ff; transform:translateY(-2px); }
+
+/* HERO */
+.hero {
+    display:flex; align-items:center; justify-content:space-between;
+    min-height:100vh; padding:0 8%; gap:40px;
+}
+.hero-text { flex:1; animation:fadeUp 1.2s ease-out; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+
+.hero h1 {
+    font-size:70px;
+    background:linear-gradient(45deg,#c67bff,#7f5dff);
+    -webkit-background-clip:text; color:transparent;
+}
+
+/* Typewriter */
+.typewriter{
+    overflow:hidden; white-space:nowrap; border-right:3px solid white;
+    font-size:22px; animation:typing 3s steps(35,end), blink .8s infinite;
+}
+@keyframes typing{ from{width:0} to{width:100%} }
+@keyframes blink{ 50% {border-color:transparent;} }
+
+/* HERO IMAGE FLOAT */
+.hero-img {
+    flex:1; max-width:400px; border-radius:18px;
+    object-fit:cover; box-shadow:0 0 25px rgba(150,100,255,0.5);
+    animation:float 4s ease-in-out infinite;
+}
+@keyframes float {
+    0% { transform:translateY(0); }
+    50% { transform:translateY(-20px); }
+    100% { transform:translateY(0); }
+}
+
+/* SECTIONS */
+section { padding:120px 8%; animation:fadeUpSection 1s ease-out; }
+@keyframes fadeUpSection { from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
+
+/* SKILLS */
+.skill-box{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:25px;
+}
+.skill{
+    background:#ffffff15; padding:20px; border-radius:14px;
+    font-size:18px; text-align:center; cursor:pointer; transition:.3s;
+    transform:perspective(600px) translateZ(0);
+}
+.skill:hover{
+    transform:perspective(600px) translateZ(40px) rotateX(8deg) rotateY(8deg);
+    box-shadow:0 0 25px #bda8ff70;
+    background:#ffffff25;
+}
+
+/* SKILL POPUP */
+.skill-modal{
+    position:fixed; top:0; left:0; width:100%; height:100%;
+    background:#000000a9; display:none; justify-content:center; align-items:center;
+    z-index:1000;
+}
+.skill-card{
+    width:45%; background:#1c1a2e; padding:30px; border-radius:18px;
+    animation:zoomIn .35s ease; border:1px solid #ffffff20;
+}
+@keyframes zoomIn { from{opacity:0; transform:scale(.5);} to{opacity:1; transform:scale(1);} }
+
+.close-btn { text-align:right; font-size:24px; cursor:pointer; color:#fff; }
+
+/* PROJECT CARDS */
+.project-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+.project{
+    background:#ffffff10; border-radius:18px; overflow:hidden;
+    cursor:pointer; transition:.3s;
+    transform:perspective(700px) translateZ(0);
+}
+@keyframes fadeUpSection {
+    from { opacity:0; transform:translateY(40px); }
+    to { opacity:1; transform:translateY(0); }
+}
+.project:hover{
+    transform:perspective(700px) translateZ(50px) rotateX(6deg);
+    box-shadow:0 0 25px #bda8ff70;
+}
+.project img{ width:100%; height:200px; object-fit:cover; }
+.project h3{ padding:15px; }
+
+/* CONTACT */
+.contact-box{
+    width:50%; margin:auto; background:#ffffff10;
+    padding:35px; border-radius:14px; text-align:center;
+}
+
+/* FOOTER */
+footer{text-align:center;padding:20px;color:#aaa;}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<header>
+    <h2>Subiksha</h2>
+    <nav>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <h1>Hi, I'm Subiksha</h1>
+        <div class="typewriter">Python • Data Science • AI Projects</div>
+    </div>
+    <section id="about" style="padding:120px 8%;">
+
+    <h1 style="
+        font-size:55px;
+        font-weight:800;">
+        I'm a <span style="color:#c67bff;">CSE Student</span>
+    </h1>
+
+    <p style="
+        margin-top:20px;
+        font-size:20px;
+        max-width:700px;
+        line-height:1.8;
+        color:#ddd;">
+        I'm a <b>Computer Science student</b> focused on building clean,
+        responsive, and modern web experiences. I enjoy solving problems
+        and turning ideas into real projects.
+    </p>
+
+    <!-- SOCIAL ICONS -->
+    <div style="margin-top:25px; display:flex; gap:15px;">
+        <a href="#" style="
+            border:2px solid #c67bff;
+            border-radius:50%;
+            padding:12px;
+            display:flex; align-items:center; justify-content:center;
+            width:45px; height:45px;
+            color:white; text-decoration:none;">in</a>
+
+        <a href="#" style="
+            border:2px solid #c67bff;
+            border-radius:50%;
+            padding:12px;
+            display:flex; align-items:center; justify-content:center;
+            width:45px; height:45px;
+            color:white; text-decoration:none;">🐱</a>
+    </div>
+
+    <!-- BUTTONS -->
+    <div style="margin-top:40px; display:flex; gap:25px;">
+        
+        <!-- HIRE ME Button -->
+        <button onclick="scrollToContact()" style="
+    padding:15px 35px;
+    border-radius:35px;
+    border:2px solid #c67bff;
+    background:transparent;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;">
+    Hire me
+</button>
+
+        <!-- Download CV -->
+        <button style="
+            padding:15px 35px;
+            border-radius:35px;
+            background:#c67bff;
+            color:white;
+            border:none;
+            font-size:18px;
+            cursor:pointer;
+            transition:.3s;">
+            Download CV
+        </button>
+    </div>
+
+</section>
+
+    <!-- Placeholder Image (Replace with your real one later) -->
+    <img class="hero-img" src="Subiksha.jpeg">
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2 style="font-size:38px;background:linear-gradient(45deg,#c67bff,#7f5dff);-webkit-background-clip:text;color:transparent;">
+        Skills
+    </h2>
+
+    <div class="skill-box">
+        <div class="skill" onclick="openSkill('python')">Python</div>
+        <div class="skill" onclick="openSkill('ml')">Machine Learning</div>
+        <div class="skill" onclick="openSkill('nlp')">NLP</div>
+        <div class="skill" onclick="openSkill('opencv')">OpenCV</div>
+        <div class="skill" onclick="openSkill('kotlin')">Kotlin</div>
+        <div class="skill" onclick="openSkill('flutter')">Flutter</div>
+        <div class="skill" onclick="openSkill('sql')">SQL</div>
+    </div>
+</section>
+
+<!-- SKILL POPUP -->
+<div class="skill-modal" id="skillModal">
+    <div class="skill-card">
+        <div class="close-btn" onclick="closeSkill()">×</div>
+        <h2 id="skillTitle"></h2>
+        <div id="skillDesc"></div>
+    </div>
+</div>
+<section id="education" style="padding:120px 8%; animation:fadeUpSection 1s ease-out;">
+    
+    <h2 style="
+        font-size:38px;
+        background:linear-gradient(45deg,#c67bff,#7f5dff);
+        -webkit-background-clip:text;
+        color:transparent;">
+        Education
+    </h2>
+
+    <div style="
+        display:flex;
+        flex-direction:column;
+        gap:25px;
+        margin-top:30px;">
+
+        <!-- College -->
+        <div style="
+            background:#ffffff15;
+            padding:25px;
+            border-radius:18px;
+            border:1px solid #ffffff25;
+            backdrop-filter:blur(18px);
+            transition:.35s;
+            animation:fadeUpSection .9s ease-out;">
+            
+            <h3 style="color:#c7b0ff; font-size:26px;">Panimalar Engineering College, Chennai</h3>
+            <p style="margin-top:10px; font-size:17px;">
+                <b>B.E – Computer Science and Engineering</b>
+            </p>
+            <p style="opacity:.85; margin-top:6px;">CGPA: <b>8.9</b></p>
+            <p style="opacity:.85;">Graduation Year: <b>2027</b></p>
+        </div>
+
+        <!-- School -->
+        <div style="
+            background:#ffffff15;
+            padding:25px;
+            border-radius:18px;
+            border:1px solid #ffffff25;
+            backdrop-filter:blur(18px);
+            transition:.35s;
+            animation:fadeUpSection 1.1s ease-out;">
+
+            <h3 style="color:#c7b0ff; font-size:26px;">Brindhavan Higher Secondary School, Thanjavur</h3>
+            <p style="margin-top:10px; font-size:17px;">
+                Completed Higher Secondary Education
+            </p>
+            <p style="opacity:.85; margin-top:6px;">12th Percentage: <b>92.4%</b></p>
+        </div>
+    </div>
+
+</section>
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 style="font-size:38px;background:linear-gradient(45deg,#c67bff,#7f5dff);-webkit-background-clip:text;color:transparent;">
+        Projects
+    </h2>
+
+    <div class="project-grid">
+        <div class="project" onclick="goTo('sign2speech.html')">
+            <img src="Sign2Speech.png">
+            <h3>Sign2Speech</h3>
+        </div>
+
+        <div class="project" onclick="goTo('smartpower.html')">
+            <img src="SmartPower.png">
+            <h3>SmartPower</h3>
+        </div>
+
+        <div class="project" onclick="goTo('lifepause.html')">
+            <img src="LifePause AI.png">
+            <h3>LifePauseAI</h3>
+        </div>
+
+        <div class="project" onclick="goTo('truevoice.html')">
+            <img src="TruevoiceAI.png">
+            <h3>TrueVoice AI</h3>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2 style="font-size:38px;background:linear-gradient(45deg,#c67bff,#7f5dff);-webkit-background-clip:text;color:transparent;">
+        Contact
+    </h2>
+
+    <div class="contact-box">
+        <p>Email: <b>subikshaelango49@gmail.com</b></p>
+        <p>GitHub: github.com/subiksha-0409</p>
+        <p>LinkedIn: linkedin.com/in/subiksha-s-815a59323/</p>
+    </div>
+</section>
+
+<footer>© 2026 Subiksha • All Rights Reserved</footer>
+
+<script>
+/* SKILL POPUP CONTENT */
+const skills = {
+    python: {
+        title: "Python",
+        desc: `
+        <ul>
+            <li>Strong understanding of Python basics</li>
+            <li>Used in Sign2Speech, SmartPower & TrueVoice AI</li>
+            <li>Data handling + ML logic</li>
+        </ul>`
+    },
+    ml: {
+        title: "Machine Learning",
+        desc: `
+        <ul>
+            <li>Worked on prediction models</li>
+            <li>Used in SmartPower & TrueVoice AI</li>
+            <li>Beginner → Intermediate experience</li>
+        </ul>`
+    },
+    nlp: {
+        title: "NLP",
+        desc: `
+        <ul>
+            <li>Basic text preprocessing</li>
+            <li>Used for emotion analysis in LifePauseAI</li>
+        </ul>`
+    },
+    opencv: {
+        title: "OpenCV",
+        desc: `
+        <ul>
+            <li>Gesture detection</li>
+            <li>Hand tracking</li>
+            <li>Used in Sign2Speech</li>
+        </ul>`
+    },
+    kotlin: {
+        title: "Kotlin",
+        desc: `
+        <ul>
+            <li>Beginner Android development</li>
+            <li>Learning Jetpack Compose</li>
+        </ul>`
+    },
+    flutter: {
+        title: "Flutter",
+        desc: `
+        <ul>
+            <li>UI screen layouts</li>
+            <li>Widgets & navigation</li>
+        </ul>`
+    },
+    sql: {
+        title: "SQL",
+        desc: `
+        <ul>
+            <li>Know basics of CRUD</li>
+            <li>Comfortable with queries</li>
+        </ul>`
+    }
+};
+
+
+function openSkill(id){
+    document.getElementById("skillTitle").innerText = skills[id].title;
+    document.getElementById("skillDesc").innerHTML = skills[id].desc;
+    document.getElementById("skillModal").style.display = "flex";
+}
+function closeSkill(){ document.getElementById("skillModal").style.display = "none"; }
+
+/* SMOOTH PAGE TRANSITION */
+function goTo(page){
+    document.body.style.opacity = 0;
+    setTimeout(()=>{ window.location.href = page; },300);
+}
+function scrollToContact() {
+    document.getElementById("contact").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+</script>
+
+</body>
+</html>

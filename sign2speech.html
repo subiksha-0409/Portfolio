@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign2Speech • Project</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet"/>
+
+<style>
+body{
+    margin:0;
+    background:#0f0e17;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    padding-bottom:50px;
+}
+
+header{
+    padding:20px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:#ffffff15;
+    backdrop-filter:blur(20px);
+}
+
+header h2{
+    margin:0;
+    font-size:28px;
+    color:#c7b0ff;
+}
+
+.back-btn{
+    color:#fff;
+    padding:10px 18px;
+    text-decoration:none;
+    border:1px solid #ffffff40;
+    border-radius:8px;
+    transition:.3s;
+}
+.back-btn:hover{
+    background:#ffffff20;
+}
+
+
+
+.container{
+    padding:40px 8%;
+}
+
+h1{
+    font-size:45px;
+    background:linear-gradient(45deg,#c67bff,#7f5dff);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.section{
+    margin-top:35px;
+}
+
+.section h2{
+    font-size:28px;
+    color:#c7b0ff;
+}
+
+ul{
+    margin-top:15px;
+    line-height:1.8;
+}
+
+.screenshots{
+    margin-top:20px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.screenshots img{
+    width:300px;
+    border-radius:12px;
+    border:1px solid #ffffff25;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>Sign2Speech</h2>
+    <a class="back-btn" href="index.html">← Back to Portfolio</a>
+</header>
+
+<div class="container">
+    
+
+    <h1>Sign2Speech</h1>
+
+    <div class="section">
+        <h2>Overview</h2>
+        <p>Sign2Speech is an AI-powered system that detects hand gestures in real-time and converts them into meaningful text and speech. Built to support Deaf & Mute communication during video interactions.</p>
+    </div>
+
+    <div class="section">
+        <h2>Features</h2>
+        <ul>
+            <li>Real-time hand gesture detection using OpenCV</li>
+            <li>Gesture → Text → Speech conversion</li>
+            <li>Lightweight & fast model suitable for real-time frames</li>
+            <li>User-friendly interface for understanding gestures</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Tech Stack</h2>
+        <ul>
+            <li><b>Python</b></li>
+            <li><b>OpenCV</b> – gesture detection</li>
+            <li><b>Numpy</b> – frame processing</li>
+            <li><b>Text-to-Speech (TTS)</b></li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Workflow</h2>
+        <ul>
+            <li>Frame captured from camera</li>
+            <li>Hand region detected + segmented</li>
+            <li>Model classifies sign</li>
+            <li>Output converted to text & speech</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Contribution</h2>
+        <ul>
+            <li>Gesture recognition logic</li>
+            <li>OpenCV frame preprocessing</li>
+            <li>Mapping gestures to text & speech output</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Screenshots</h2>
+        <div class="screenshots">
+            <img src="Screenshot 2.png.jpg">
+            <img src="Screenshot 1.png">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
